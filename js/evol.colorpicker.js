@@ -201,14 +201,18 @@ $.widget( "evol.colorpicker", {
 			labels=opts.strings.split(','),
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
-			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
+			oTRTH='<tr><th colspan="10" class="ui-widget-content">',
+			// changed by adrianhitulescu - we want our own color theme to be set for each colorpicker
+			themeColors = (opts.skin) ? opts.skin.split('|') : baseThemeColors;
 
 		// base theme colors
 		var h='<table class="evo-palette'+_ie+'">'+oTRTH+labels[0]+'</th></tr><tr>';
-		for(var i=0;i<10;i++){ 
-			h+=oTD+baseThemeColors[i]+cTD;
+		for(var i=0,len=themeColors.length;i<len;i++){ 
+			h+=oTD+themeColors[i]+cTD;
 		}
 		h+='</tr>';
+
+/*
 		if(!isIE){
 			h+='<tr><th colspan="10"></th></tr>';
 		}
@@ -228,6 +232,9 @@ $.widget( "evol.colorpicker", {
 			h+=oTD+subThemeColors[i]+cTD;
 		}
 		h+='</tr>'+oTRTH;
+*/
+		h+= oTRTH;
+
 		// transparent color
 		if(opts.transparentColor){
 			h+='<div class="evo-transparent evo-tr-box"></div>';

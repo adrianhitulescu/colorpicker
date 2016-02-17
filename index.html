@@ -7,7 +7,7 @@
 	<link href="css/evol.colorpicker.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="js/evol.colorpicker.min.js" type="text/javascript"></script>
+	<script src="js/evol.colorpicker.js" type="text/javascript"></script>
 </head>
 
 <body>   
@@ -118,7 +118,8 @@ $(document).ready(function(){
 	
 	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2',
-		initialHistory: ['#ff0000','#000000','red']
+		initialHistory: ['#ff0000','#000000','red'],
+		skin: 'ff0000|8db3e2'
 })
 		.on('change.color', function(evt, color){
 			$('#cpb').css('background-color',color);
@@ -150,8 +151,8 @@ $(document).ready(function(){
 	
 	// Instanciate colorpickers
     $('#cpBoth').colorpicker();
-    $('#cpDiv').colorpicker({color:'#31859b'});
-    $('#cpDiv2').colorpicker({color:'#31859b', defaultPalette:'web'});
+    $('#cpDiv').colorpicker({color:'#31859b', skin: 'ff0000|8db3e2'});
+    $('#cpDiv2').colorpicker({color:'#31859b', defaultPalette:'web', skin: 'ff0000|8db3e2'});
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});
